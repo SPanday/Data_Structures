@@ -49,10 +49,14 @@ public class LinkedListWrap {
 		if (currentNode.getData() == value && currentNode.equals(getHead())) {
 			foundCount += 1;
 			this.setHead(currentNode.getNext()); // if the first node is deleted, we need to set the new head to the
-													// next node
+			currentNode = getHead(); // next node
 		}
-		while (currentNode.getNext() != null) {
-			if (currentNode.getNext().getData() == value) {
+		while (currentNode != null && currentNode.getNext() != null) {
+			if (currentNode.getData() == value && currentNode.equals(getHead())) {
+				foundCount += 1;
+				this.setHead(currentNode.getNext()); // if the first node is deleted, we need to set the new head to the
+				currentNode = getHead(); // next node
+			} else if (currentNode.getNext().getData() == value) {
 				foundCount += 1;
 				currentNode.setNext(currentNode.getNext().getNext());// if node is deleted, current node's next node is
 																		// still unexplored, so no alteration needed for

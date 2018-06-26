@@ -14,6 +14,8 @@ public class SingleLLTest {
 		wordsLinkedList.addNewNode("world");
 		System.out.println(wordsLinkedList.toString());
 		System.out.println(wordsLinkedList.deleteNodeByValue("world"));
+		System.out.println(wordsLinkedList.toString()+"\n");
+		
 		wordsLinkedList.addNewNode("Hello");
 		wordsLinkedList.addNewNode("world");
 		wordsLinkedList.addNewNode("!");
@@ -24,8 +26,8 @@ public class SingleLLTest {
 		// linked list storing numbers
 		LinkedListWrap numberslinkedList = new LinkedListWrap();
 		numberslinkedList.addNewNode("1");
-		numberslinkedList.addNewNode("2");
-		numberslinkedList.addNewNode("3");
+		numberslinkedList.addNewNode("1");
+		numberslinkedList.addNewNode("1");
 		numberslinkedList.addNewNode("4");
 		System.out.println(numberslinkedList.toString());
 		System.out.println(numberslinkedList.deleteNodeByValue("2"));
