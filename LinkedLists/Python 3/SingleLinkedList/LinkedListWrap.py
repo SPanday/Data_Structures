@@ -29,7 +29,7 @@ class LinkedListWrap(object):
             while(currentNode.getNext() != None):
                 currentNode = currentNode.getNext()
             currentNode.setNext(node(data))
-        print("Added a new node:", data )
+        return "Added a new node:" + str(data)
  
     '''
     This function deletes the node(s), with data same as value passed, from the single linked list
@@ -58,8 +58,42 @@ class LinkedListWrap(object):
                         currentNode = currentNode.getNext()
             response = "Number of nodes with value '" + str(value) + "' deleted: " + str(foundCount)
         return response
-            
-            
+
+# =============================================================================
+#   Deleting the last node of a linked list 
+# =============================================================================
+    def deleteLastNode(self):
+        if self.getHead() == None:
+            return "Linked List is Empty!"
+        else:
+            currentNode = self.getHead()
+            if(currentNode.getNext() == None ):
+                self.setHead(None)
+            else:
+                while ( currentNode.getNext().getNext() != None):
+                    currentNode = currentNode.getNext()
+                currentNode.setNext(None)
+        return("Linked List after deletion of last node:\n" + self.__repr__())
+        
+# =============================================================================
+#     Reversing a Single Linked List        
+# =============================================================================
+    def reverseSingleLL(self):
+        if self.getHead()==None:
+            return "Linked List is Empty!"
+        elif self.getHead().getNext() == None:
+            return "Reversed Linked List :\n" + self.__str__()
+        else:
+            tempList = LinkedListWrap()
+            while(self.getHead() != None):
+                currentNode = self.getHead()
+                while(currentNode.getNext() != None):
+                    currentNode = currentNode.getNext()
+                tempList.addNode(currentNode.getData())
+                self.deleteLastNode()
+            self.setHead(tempList.getHead())
+            return "Reversed Linked List :\n" + self.__repr__()
+        
     def __repr__(self):
         if self.getHead() == None:
             return "Linked List is Empty!"
